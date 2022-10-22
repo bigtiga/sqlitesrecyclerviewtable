@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,6 +28,7 @@ public  class Custom_Adapter extends Adapter<Custom_Adapter.MyViewHolder>{
     private MyViewHolder holder;
     private int position;
     private TextView tv_id, tv_booktitle, tv_bookauthor, tv_bookpages;
+    Animation amin_translate;
 
     public Custom_Adapter(Context context, ArrayList book_id, ArrayList book_title, ArrayList book_author, ArrayList book_pages) {
         this.context = context;
@@ -88,6 +91,9 @@ public  class Custom_Adapter extends Adapter<Custom_Adapter.MyViewHolder>{
             tv_bookauthor = Objects.requireNonNull(itemView).findViewById(id.tv_bookauthor);
             tv_bookpages = Objects.requireNonNull(itemView).findViewById(id.tv_bookpages);
             row_index_key = Objects.requireNonNull(itemView).findViewById(id.row_index_key);
+            amin_translate = AnimationUtils.loadAnimation(context, anim.amin_translate);
+            row_index_key.setAnimation(amin_translate);
+
 
         }
 
